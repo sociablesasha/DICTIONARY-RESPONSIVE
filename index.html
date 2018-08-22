@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        .container {
+            width: 70%;
+            height: 80%;
+            margin: 0 auto;
+            border-right: 0.5rem solid darksalmon;
+            border-left: 0.5rem solid darksalmon;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .navigation {
+            height: 10%;
+            text-align: center;
+            background: darksalmon;
+        }
+
+        .tags {
+            height: 100%;
+            margin-left: 10px;
+            margin-right: 10px;
+
+        }
+
+        .content {
+            height: 85%;
+            text-align: center;
+            overflow: scroll;
+        }
+
+        @media (min-width: 0px) {
+            .icons {
+                width: 100% !important;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .icons {
+                width: 45% !important;
+            }
+        }
+
+        @media (min-width: 1100px) {
+            .icons {
+                width: 30% !important;
+            }
+        }
+
+        .footer {
+            height: 5%;
+            background: darksalmon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <img class="tags" id="all" onclick="typesAnimation('all')" src="./NavigationIcon/AllBlack.png"></img>
+            <img class="tags" id="meat" onclick="typesAnimation('meat')" src="./NavigationIcon/MeatWhite.png"></img>
+            <img class="tags" id="grass" onclick="typesAnimation('grass')" src="./NavigationIcon/GrassWhite.png"></img>
+        </div>
+        <div class="content">
+            <img class="icons meat" src="./AnimalIcon/Dog.png" alt="개">
+            <img class="icons grass" src="./AnimalIcon/Bird.png" alt="새">
+            <img class="icons grass" src="./AnimalIcon/Camel.png" alt="낙타">
+            <img class="icons grass" src="./AnimalIcon/Horse.png" alt="말">
+            <img class="icons grass" src="./AnimalIcon/Rabbit.png" alt="토끼">
+            <img class="icons grass" src="./AnimalIcon/Elephant.png" alt="코끼리">
+            <img class="icons meat" src="./AnimalIcon/Cat.png" alt="고양이">
+            <img class="icons grass" src="./AnimalIcon/Giraffe.png" alt="기린">
+            <img class="icons meat" src="./AnimalIcon/Lion.png" alt="사자">
+            <img class="icons meat" src="./AnimalIcon/Wolf.png" alt="늑대">
+            <img class="icons meat" src="./AnimalIcon/Monkey.png" alt="원숭이">
+            <img class="icons grass" src="./AnimalIcon/Duck.png" alt="오리">
+            <img class="icons grass" src="./AnimalIcon/Fish.png" alt="물고기">
+            <img class="icons grass" src="./AnimalIcon/Mouse.png" alt="생쥐">
+            <img class="icons grass" src="./AnimalIcon/Turtle.png" alt="거북이">
+            <img class="icons meat" src="./AnimalIcon/Tiger.png" alt="호랑이">
+            <img class="icons grass" src="./AnimalIcon/Bull.png" alt="황소">
+            <img class="icons grass" src="./AnimalIcon/Cow.png" alt="젖소">
+            <img class="icons grass" src="./AnimalIcon/Zebra.png" alt="얼룩말">
+            <img class="icons grass" src="./AnimalIcon/Goose.png" alt="거위">
+        </div>
+        <div class="footer"></div>
+    </div>
+
+    <script>
+        const meat = document.getElementsByClassName('meat');
+        const grass = document.getElementsByClassName('grass');
+        const icons = document.getElementsByClassName("icons");
+
+        function typesAnimation(types) {
+            var shown, hidden;
+
+            document.getElementById("all").src = "./NavigationIcon/AllWhite.png";
+            document.getElementById("meat").src = "./NavigationIcon/MeatWhite.png";
+            document.getElementById("grass").src = "./NavigationIcon/GrassWhite.png";
+
+            if (types === "meat") {
+                shown = meat;
+                hidden = grass;
+                document.getElementById("meat").src = "./NavigationIcon/MeatBlack.png";
+            }
+            else if (types === "grass") {
+                shown = grass;
+                hidden = meat;
+                document.getElementById("grass").src = "./NavigationIcon/GrassBlack.png";
+            }
+            else {
+                show(meat);
+                show(grass);
+
+                document.getElementById("all").src = "./NavigationIcon/AllBlack.png";
+
+                return false;
+            }
+            show(shown);
+            hide(hidden);
+        }
+
+        function show(types) {
+
+            for (let value of types) {
+                value.style.display = 'inline';
+            }
+        }
+
+        function hide(types) {
+            for (let value of types) {
+                value.style.display = 'none';
+            }
+        }
+
+        for (let icon of icons) {
+            icon.onclick = function () {
+                window.open("https://ko.wikipedia.org/wiki/" + icon.alt);
+            }
+        }
+    </script>
+</body>
+
+</html>
