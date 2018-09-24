@@ -23,4 +23,4 @@
 
 ## Histories
     2018.08.13. Media Query Study.
-    2018.08.14. Make it!
+    2018.08.14. Make it! Do it!
