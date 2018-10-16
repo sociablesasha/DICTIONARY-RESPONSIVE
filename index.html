@@ -109,13 +109,11 @@
                 shown = meat;
                 hidden = grass;
                 document.getElementById("meat").src = "./NavigationIcon/MeatBlack.png";
-            }
-            else if (types === "grass") {
+            } else if (types === "grass") {
                 shown = grass;
                 hidden = meat;
                 document.getElementById("grass").src = "./NavigationIcon/GrassBlack.png";
-            }
-            else {
+            } else {
                 show(meat);
                 show(grass);
 
@@ -141,7 +139,7 @@
         }
 
         for (let icon of icons) {
-            icon.onclick = function () {
+            icon.onclick = () => {
                 window.open("https://ko.wikipedia.org/wiki/" + icon.alt);
             }
         }
